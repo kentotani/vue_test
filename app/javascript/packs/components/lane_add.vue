@@ -60,7 +60,7 @@ export default {
 
 .form{
   width: 160px;
-  margin: 15px 5px;
+  margin: 20px 5px;
   padding: 5px;
 }
 
