@@ -10,5 +10,5 @@
 #
 
 class Task < ApplicationRecord
-  belongs_to :lane
+  # belongs_to :lane
 end
