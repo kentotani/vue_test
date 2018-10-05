@@ -4,9 +4,6 @@ class GraphqlController < ActionController::API
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      current_user: User.last,
-      current_task: Task.last,
-      current_lane: Lane.last,
     }
     result = MyappSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

@@ -1,17 +1,17 @@
 <template>
   <div class="body">
     <div>
-      <ul class="lanes">
-        <li class="lane" v-for="lane in lanes">
+      <div class="lanes">
+        <div class="lane" border-variant="primary" v-for="lane in lanes">
           <draggable :options="{group:'tasks',animation:300}">
             {{lane}}<task_add></task_add>
           </draggable>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
     <div class="form">
-      <input type="text" v-model="title" placeholder="Add new lane">
-      <button v-on:click="add"> レーンを追加 </button>
+      <input type="text" class="laneinput" v-model="title" placeholder="Add new lane">
+      <button type="button" class="btn btn-outline-primary btn-block" v-on:click="add"> レーンを追加 </button>
     </div>
   </div>
 </template>
@@ -47,21 +47,22 @@ export default {
 
 .lanes{
   display: flex;
-  list-style: none;
 }
 
 .lane{
-  list-style: none;
-  width: 160px;
+  width: 250px;
   margin: 5px;
   padding: 5px;
   border: 1px solid #000;
 }
 
 .form{
-  width: 160px;
+  width: 200px;
   margin: 20px 5px;
   padding: 5px;
 }
 
+.laneinput{
+  margin: 10px 0px;
+}
 </style>

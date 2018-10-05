@@ -1,4 +1,4 @@
-// import Vue from 'vue'
+// import Vue from 'vue/dist/vue.esm';
 // import Router from 'vue-router'
 // import App from '../../app'
 //
@@ -8,8 +8,8 @@
 //   routes: [
 //     {
 //       path: '/',
-//       name: 'User',
-//       component: User
+//       name: 'App',
+//       component: App
 //     }
 //   ]
 // })

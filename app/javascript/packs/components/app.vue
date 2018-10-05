@@ -1,13 +1,18 @@
 <template>
   <div>
     <header>
-      <h1>Task</h1>
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+      </nav>
+      <h1>ボード名</h1>
     </header>
     <hr>
     <main>
       <lane_add></lane_add>
-        <p>{{ user }}</p>
+      <p>{{ task.title }}</p>
     </main>
+    <footer>
+    </footer>
   </div>
 </template>
 
@@ -18,9 +23,10 @@ import gql from 'graphql-tag'
 
 const FeedQuery = gql`
 {
-  user {
+  task(lane_id: "1"){
     id
-    name
+    title
+    lane_id
   }
 }
 `
@@ -32,11 +38,11 @@ export default {
   },
   data() {
     return {
-      user: "", //レスポンスを入れるプロパティの初期化
+      task: "", //レスポンスを入れるプロパティの初期化
     }
   },
   apollo: {
-    user: {
+    task: {
       query: FeedQuery,
       loadingKey: 'loading',
     },

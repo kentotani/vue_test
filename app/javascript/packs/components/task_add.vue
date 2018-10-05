@@ -1,12 +1,16 @@
 <template>
   <div>
-      <ul class="tasks">
+      <div class="tasks">
         <draggable :options="{group:'tasks',animation:300}">
-          <li class="task" v-for="task in tasks"><draggable>{{task}}</draggable></li>
+          <div class="task" v-for="task in tasks">
+            <b-alert show dismissible variant="primary">
+              <draggable>{{task}}</draggable>
+            </b-alert>
+          </div>
         </draggable>
-      </ul>
-    <input type="text" v-model="title" placeholder="Add new task">
-    <button v-on:click="add" > タスクを追加 </button>
+      </div>
+    <input type="text" class="taskinput" v-model="title" placeholder="Add new task">
+    <button type="button" class="btn btn-outline-primary btn-block" v-on:click="add" > タスクを追加 </button>
   </div>
 </template>
 
@@ -34,17 +38,15 @@ export default {
 
 <style>
 .body{
-
 }
+
 .tasks{
-  list-style: none;
 }
 
 .task{
-  width: 100px;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid #000;
-  list-style: none;
+}
+
+.taskinput{
+  margin: 10px 0px;
 }
 </style>
