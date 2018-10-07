@@ -30,7 +30,7 @@ const apolloProvider = new VueApollo({
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#example',
+  el: '#app',
   provide: apolloProvider.provide(),
   components: { App },
   // router,

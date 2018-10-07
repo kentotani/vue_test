@@ -19,10 +19,15 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
   field :tasks do
+    # type types[Types::TaskType]
+    # argument :lane_id, !types.String
+    # resolve ->(obj, args, ctx) {
+    #   Task.all.where(lane_id: args['lane_id'])
+    # }
     type types[Types::TaskType]
-    argument :lane_id, !types.String
-    resolve ->(obj, args, ctx) {
-      Task.all.where(lane_id: args['lane_id'])
+    resolve -> (obj, args, ctx)  {
+      Task.all
+      # Lane.all.includes(:tasks)
     }
   end
 
@@ -33,10 +38,4 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
-  # field :tasks, [Types::TaskType], null: true do
-  # end
-  #
-  # def tasks
-  #   Task.all
-  # end
 end
