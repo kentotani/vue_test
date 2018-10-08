@@ -5,7 +5,7 @@
     </header>
     <hr>
     <main>
-      <lane_add></lane_add>
+      <lane></lane>
     </main>
     <footer>
     </footer>
@@ -14,13 +14,13 @@
 
 <script>
 import draggable from 'vuedraggable';
-import lane_add from './lane_add'
+import lane from './lane'
 
 export default {
   name: 'App',
   components: {
     draggable,
-    lane_add,
+    lane,
   },
   data() {
     return {

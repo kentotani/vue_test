@@ -6,7 +6,7 @@
         <button v-on:click="change()">ChengeTheme!</button>
         <div class="card-body bg-light">
           <draggable :options="{group:'tasks',animation:300,delay:50}">
-            <div class="card-title"><task_add></task_add></div>
+            <div class="card-title"><task :lane="lane"></task></div>
           </draggable>
         </div>
       </div>
@@ -22,26 +22,35 @@
 
 <script>
 import draggable from 'vuedraggable';
-import task_add from './task_add'
+import task from './task'
 import gql from 'graphql-tag'
 
 const FeedQuery = gql`
 {
-  lanes{
-    title
+  lanes {
     id
+    title
+    tasks{
+      edges{
+        node{
+          id
+          title
+        }
+      }
+    }
   }
 }
 `
 export default {
   components: {
     draggable,
-    task_add,
+    task,
   },
   data(){
     return {
       title: "",
       lanes: "",
+      tasks: "",
       theme: "card text-white bg-dark mb-3"
     }
   },
@@ -49,7 +58,7 @@ export default {
     lanes: {
       query: FeedQuery,
       loadingKey: 'loading',
-    }
+    },
   },
   methods: {
     add() {

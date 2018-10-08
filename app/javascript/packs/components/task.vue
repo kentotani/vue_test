@@ -2,9 +2,9 @@
   <div>
     <div>
       <draggable :options="{group:'tasks',animation:300,delay:50}">
-        <div class="tasks" v-for="task in tasks">
+        <div class="tasks" v-for="task in lane" v-repert="node">
           <b-alert class="task" show dismissible variant="dark">
-            <draggable>{{ task.title }}【{{ task.lane_id }}】</draggable>
+            <draggable>【{{title}}】</draggable>
           </b-alert>
         </div>
       </draggable>
@@ -18,32 +18,17 @@
 
 <script>
 import draggable from 'vuedraggable';
-import gql from 'graphql-tag'
 
-const FeedQuery = gql`
-{
-  tasks{
-    title
-    lane_id
-    id
-  }
-}
-`
 export default {
   components: {
     draggable,
   },
+  props: [ "lane" ],
   data(){
     return {
       title: "",
       tasks : []
     }
-  },
-  apollo: {
-    tasks: {
-    query: FeedQuery,
-      loadingKey: 'loading',
-    },
   },
   methods:{
     add(){
