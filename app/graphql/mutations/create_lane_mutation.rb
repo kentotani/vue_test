@@ -4,7 +4,7 @@
 #
 #     input_field :title, !types.String
 #
-#     return_field :post, !Types::PostType
+#     return_field :lane, !Types::LaneType
 #
 #     resolve ->(_obj, inputs, ctx) {
 #       begin
