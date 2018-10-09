@@ -1,18 +1,12 @@
 <template>
   <div>
-    <div>
-      <draggable :options="{group:'tasks',animation:300,delay:50}">
-        <div class="tasks" v-for="task in lane" v-repert="node">
-          <b-alert class="task" show dismissible variant="dark">
-            <draggable>【{{title}}】</draggable>
-          </b-alert>
-        </div>
-      </draggable>
-    </div>
-    <div>
-      <input type="text" class="form-control" v-model="title" placeholder="Add new task">
-      <button type="button" class="btn btn-outline-dark btn-block" v-on:click="add" > タスクを追加 </button>
-    </div>
+    <draggable :options="{group:'tasks',animation:300,delay:50}">
+      <div class="tasks" v-for="task in lane.tasks.edges">
+        <b-alert class="task" show dismissible variant="dark">
+          <draggable>【{{ task.node.title }}】</draggable>
+        </b-alert>
+      </div>
+    </draggable>
   </div>
 </template>
 
@@ -27,16 +21,11 @@ export default {
   data(){
     return {
       title: "",
-      tasks : []
+      lane: [],
     }
   },
-  methods:{
-    add(){
-      this.tasks.push(this.title)
-      this.title = ""
-    }
-  }
 }
+
 </script>
 
 <style>
@@ -55,3 +44,20 @@ export default {
   margin: 10px 0px;
 }
 </style>
+
+<!-- <div class="tasks" v-for="task in tasks">
+  <b-alert class="task" show dismissible variant="dark">
+    <draggable>{{task.title}}【{{task.id}}】</draggable>
+  </b-alert>
+</div> -->
+
+
+<!-- <div class="tasks" v-for="etask in ltask">
+<div class="tasks" v-for="ntask in etask">
+<div class="tasks" v-for="stask in ntask">
+<div class="tasks" v-for="atask in stask"> -->
+
+<!-- </div>
+</div>
+</div>
+</div> -->

@@ -5,7 +5,10 @@
     </header>
     <hr>
     <main>
-      <lane></lane>
+      <div class="lanes">
+        <lane></lane>
+        <add_lane></add_lane>
+      </div>
     </main>
     <footer>
     </footer>
@@ -15,12 +18,14 @@
 <script>
 import draggable from 'vuedraggable';
 import lane from './lane'
+import add_lane from './add_lane';
 
 export default {
   name: 'App',
   components: {
     draggable,
     lane,
+    add_lane,
   },
   data() {
     return {
@@ -31,4 +36,7 @@ export default {
 </script>
 
 <style>
+.lanes {
+  display: flex;
+}
 </style>
