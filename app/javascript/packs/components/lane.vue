@@ -1,7 +1,7 @@
 <template>
   <div class="lanes">
     <div v-bind:class="theme" style="max-width: 18rem;" v-for="lane in lanes">
-      <div class="card-header">{{ lane.title }}【{{ lane.id }}】</div>
+      <div class="card-header">{{ lane.title }}</div>
       <button v-on:click="change()">ChengeTheme!</button>
       <div class="card-body bg-light">
         <div class="card-title"><task :lane="lane"></task></div>

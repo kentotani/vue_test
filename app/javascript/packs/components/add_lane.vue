@@ -2,7 +2,7 @@
   <div class="body">
     <div class="lanes">
       <div v-bind:class="theme" style="max-width: 18rem;" v-for="newlane in newlanes">
-        <div class="card-header">{{ newlane }}【】</div>
+        <div class="card-header">{{ newlane }}</div>
         <button v-on:click="change()">ChengeTheme!</button>
         <div class="card-body bg-light">
           <draggable :options="{group:'tasks',animation:300,delay:50}">

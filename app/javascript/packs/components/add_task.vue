@@ -3,8 +3,8 @@
     <div>
       <draggable :options="{group:'tasks',animation:300,delay:50}">
         <div class="tasks" v-for="task in tasks">
-          <b-alert class="task" show dismissible variant="warning">
-            <draggable>{{ task }}【】</draggable>
+          <b-alert class="task" show dismissible variant="dark">
+            <draggable>{{ task }}</draggable>
           </b-alert>
         </div>
       </draggable>
