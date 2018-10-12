@@ -73,9 +73,4 @@ export default {
   width: 240px;
   margin: 5px;
 }
-
-.form-control {
-  width: 100%;
-  margin: 10px 0px;
-}
 </style>

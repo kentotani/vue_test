@@ -12,8 +12,6 @@ Types::MutationType = GraphQL::ObjectType.define do
 end
 
 
-
-
 # module Types
 #   class MutationType < Types::BaseObject
 #   end
