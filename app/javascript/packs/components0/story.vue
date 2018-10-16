@@ -1,9 +1,9 @@
 <template>
   <div>
     <draggable :options="{group:'tasks',animation:300,delay:50}">
-      <div class="tasks" v-for="task in lane.tasks.edges">
-        <b-alert class="task" show variant="dark">
-          <draggable>{{ task.node.title }}</draggable>
+      <div class="tasks" v-for="story in stories">
+        <b-alert class="task" show dismissible variant="primary">
+          <draggable>{{ story.name }}</draggable>
         </b-alert>
       </div>
     </draggable>
@@ -17,11 +17,13 @@ export default {
   components: {
     draggable,
   },
-  props: [ "lane" ],
   data(){
     return {
-      title: "",
-      lane: [],
+      stories: [
+         { name: "story01" },
+         { name: "story02" },
+         { name: "story03" }
+      ]
     }
   },
 }
@@ -29,16 +31,6 @@ export default {
 </script>
 
 <style>
-.body {
-}
-
-.tasks {
-}
-
-.task {
-  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
-}
-
 .form-control {
   width: 100%;
   margin: 10px 0px;
