@@ -31,5 +31,9 @@
 yarn-debug.log*
 .yarn-integrity
 
+<<<<<<< HEAD
 #mysql
+=======
+#mysql volume
+>>>>>>> develop
 /docker/mysql/
